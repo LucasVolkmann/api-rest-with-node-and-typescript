@@ -1,3 +1,3 @@
 import { server } from './server/Server';
 
-server.listen('3333', () => console.log("It's ON!"));
+server.listen('3333', () => console.log('It\'s ON!'));
