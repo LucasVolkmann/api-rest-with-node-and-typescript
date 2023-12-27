@@ -21,7 +21,7 @@ export const updateById = async (req: Request<{}, {}, ICity>, res: Response) => 
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
             .json({
                 errors: {
-                    default: 'Not Found Register.'
+                    default: 'Register Not Found.'
                 }
             });
     } 

@@ -11,6 +11,7 @@ router.get('/cities',
     CitiesController.getAllValidator, 
     CitiesController.getAll
 );
+
 router.get('/cities/:id', 
     CitiesController.getByIdValidator, 
     CitiesController.getById
