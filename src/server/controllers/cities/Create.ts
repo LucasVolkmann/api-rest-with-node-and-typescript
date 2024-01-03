@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validator } from '../../shared/middleware';
+import { Knex } from '../../database/knex';
 
 interface ICity {
     name: string;
@@ -14,6 +15,9 @@ export const createValidator = validator((getSchema) => ({
 }));
 
 export const create = async (req: Request<{}, {}, ICity>, res: Response) => {
+
+    Knex('city');
+
 
     return res.status(StatusCodes.CREATED)
         .json({ 
