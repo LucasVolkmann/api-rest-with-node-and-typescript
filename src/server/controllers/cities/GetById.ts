@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validator } from '../../shared/middleware';
+import { CitiesProvider } from '../../database/providers/cities';
 
 interface IParamProps {
     id?: number;
@@ -15,17 +16,18 @@ export const getByIdValidator = validator((getSchema) => ({
 
 export const getById = async (req: Request<IParamProps>, res: Response) => {
 
-    if (Number(req.params.id) === 999999) {
+    const result = await CitiesProvider.getById(Number(req.params.id));
+    
+    if(result instanceof Error){
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
             .json({
                 errors: {
-                    default: 'Not Found Register.'
+                    default: result.message
                 }
             });
+    } else {
+        return res.status(StatusCodes.OK)
+            .json(result);
     }
-    return res.status(StatusCodes.OK)
-        .json({ 
-            id: req.params.id, 
-            name: 'Mock City' 
-        });
+
 };
