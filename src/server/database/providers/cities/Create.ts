@@ -2,7 +2,7 @@ import { ETableNames } from '../../ETableNames';
 import { Knex } from '../../knex';
 import { ICity } from '../../models';
 
-
+//FIXME: return only an integer
 export const create = async (city: Omit<ICity, 'id'>): Promise<ICity | Error> => {
 
     try {

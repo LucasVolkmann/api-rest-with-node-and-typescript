@@ -7,10 +7,10 @@ import * as count from './Count';
 
 
 export const CitiesProvider = {
-    ...create,
-    ...getAll,
-    ...deleteById,
-    ...getById,
-    ...updateById,
-    ...count
+  ...create,
+  ...getAll,
+  ...deleteById,
+  ...getById,
+  ...updateById,
+  ...count
 };

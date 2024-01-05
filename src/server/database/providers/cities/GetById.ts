@@ -4,20 +4,20 @@ import { ICity } from '../../models';
 
 
 
-export const getById = async (id:number): Promise<ICity | Error> => {
-    
-    try {
-        const result = await Knex(ETableNames.city)
-            .select('*')
-            .where('id', '=', id)
-            .first();
+export const getById = async (id: number): Promise<ICity | Error> => {
 
-        if (result) return result;
-            
-        return new Error('No one register find.');
+  try {
+    const result = await Knex(ETableNames.city)
+      .select('*')
+      .where('id', '=', id)
+      .first();
 
-    } catch (error) {
-        console.log(error);
-        return new Error('Error while finding by id.');
-    }
+    if (result) return result;
+
+    return new Error('No one register find.');
+
+  } catch (error) {
+    console.log(error);
+    return new Error('Error while finding by id.');
+  }
 };

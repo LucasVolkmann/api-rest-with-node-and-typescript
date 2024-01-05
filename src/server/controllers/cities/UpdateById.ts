@@ -10,25 +10,25 @@ import { CitiesProvider } from '../../database/providers/cities';
 interface IBodyProps extends ICity { }
 
 export const updateByIdValidator = validator((getSchema) => ({
-    body: getSchema<IBodyProps>(yup.object().shape({
-        id: yup.number().integer().required().moreThan(0),
-        name: yup.string().required().min(3),
-    })),
+  body: getSchema<IBodyProps>(yup.object().shape({
+    id: yup.number().integer().required().moreThan(0),
+    name: yup.string().required().min(3),
+  })),
 }));
 
 export const updateById = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
 
-    const result = await CitiesProvider.updateById(req.body);
+  const result = await CitiesProvider.updateById(req.body);
 
-    if(result instanceof Error) {
-        return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-            .json({
-                errors: {
-                    default: result.message
-                }
-            });
-    } else {
-        return res.status(StatusCodes.OK).json(result);
-    }
+  if (result instanceof Error) {
+    return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({
+        errors: {
+          default: result.message
+        }
+      });
+  } else {
+    return res.status(StatusCodes.OK).json(result);
+  }
 
 };
