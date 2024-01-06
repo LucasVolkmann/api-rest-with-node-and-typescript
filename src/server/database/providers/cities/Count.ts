@@ -10,9 +10,7 @@ export const count = async (filter: string): Promise<number | Error> => {
       .count<[{ count: number }]>('* as count')
       .where('name', 'like', `%${filter}%`);
 
-    if (count == 0) {
-      return new Error('No one register founded with this filter.');
-    } else if (Number.isInteger(Number(count))) {
+    if (Number.isInteger(Number(count))) {
       return Number(count);
     }
 

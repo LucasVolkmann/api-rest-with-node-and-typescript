@@ -23,7 +23,7 @@ export const getAllValidator = validator((getSchema) => ({
 export const getAll = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
 
   const count = await CitiesProvider.count(req.query.filter || '');
-  const result = await CitiesProvider.getAll(req.query.page || 1, req.query.limit || 5, req.query.filter || '', req.query.id || 0);
+  const result = await CitiesProvider.getAll(req.query.page || 1, req.query.limit || 10, req.query.filter || '', req.query.id || 0);
 
   if (result instanceof Error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

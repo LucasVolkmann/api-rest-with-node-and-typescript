@@ -23,11 +23,7 @@ export const getAll = async (page: number, limit: number, filter: string, id = 0
       if (resultById) return [...result, resultById];
     }
 
-    if (result) {
-      return result;
-    } else {
-      return new Error('No one register founded.');
-    }
+    return result;
 
   } catch (error) {
     console.log(error);
