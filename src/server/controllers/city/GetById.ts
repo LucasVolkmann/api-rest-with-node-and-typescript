@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validator } from '../../shared/middleware';
-import { CitiesProvider } from '../../database/providers/cities';
+import { CityProvider } from '../../database/providers/city';
 
 interface IParamProps {
   id?: number;
@@ -16,7 +16,7 @@ export const getByIdValidator = validator((getSchema) => ({
 
 export const getById = async (req: Request<IParamProps>, res: Response) => {
 
-  const result = await CitiesProvider.getById(Number(req.params.id));
+  const result = await CityProvider.getById(Number(req.params.id));
 
   if (result instanceof Error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR)

@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { validator } from '../../shared/middleware';
 
 import { ICity } from '../../database/models';
-import { CitiesProvider } from '../../database/providers/cities';
+import { CityProvider } from '../../database/providers/city';
 
 interface IBodyProps extends ICity { }
 
@@ -18,7 +18,7 @@ export const updateByIdValidator = validator((getSchema) => ({
 
 export const updateById = async (req: Request<{}, {}, IBodyProps>, res: Response) => {
 
-  const result = await CitiesProvider.updateById(req.body);
+  const result = await CityProvider.updateById(req.body);
 
   if (result instanceof Error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR)

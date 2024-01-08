@@ -3,12 +3,12 @@ import { testServer } from '../jest.setup';
 
 
 
-describe('Cities - Get All', () => {
+describe('City - Get All', () => {
 
   it('Get all registers.', async () => {
 
     const res1 = await testServer
-      .post('/cities')
+      .post('/city')
       .send({
         name: 'Mock Test City'
       });
@@ -16,7 +16,7 @@ describe('Cities - Get All', () => {
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 
     const res2 = await testServer
-      .get('/cities').send();
+      .get('/city').send();
 
     expect(res2.statusCode).toEqual(StatusCodes.OK);
     expect(Number(res2.header['x-total-count'])).toBeGreaterThan(0);
@@ -24,7 +24,7 @@ describe('Cities - Get All', () => {
   });
   it('It try to get all with query param [ page ] below zero.', async () => {
     const res1 = await testServer
-      .get('/cities?page=-1');
+      .get('/city?page=-1');
 
     expect(res1.statusCode).toEqual(StatusCodes.BAD_REQUEST);
     expect(res1.body).toHaveProperty('errors.query.page');

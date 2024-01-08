@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as yup from 'yup';
 import { validator } from '../../shared/middleware';
-import { CitiesProvider } from '../../database/providers/cities';
+import { CityProvider } from '../../database/providers/city';
 
 interface IQueryProps {
   page?: number,
@@ -22,8 +22,8 @@ export const getAllValidator = validator((getSchema) => ({
 
 export const getAll = async (req: Request<{}, {}, {}, IQueryProps>, res: Response) => {
 
-  const count = await CitiesProvider.count(req.query.filter || '');
-  const result = await CitiesProvider.getAll(req.query.page || 1, req.query.limit || 10, req.query.filter || '', req.query.id || 0);
+  const count = await CityProvider.count(req.query.filter || '');
+  const result = await CityProvider.getAll(req.query.page || 1, req.query.limit || 10, req.query.filter || '', req.query.id || 0);
 
   if (result instanceof Error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

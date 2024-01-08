@@ -6,5 +6,5 @@ export interface IPerson {
   firstName: string,
   lastName: string,
   email: string,
-  IdCity: ICity
+  idCity: number
 }

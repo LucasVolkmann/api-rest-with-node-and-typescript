@@ -3,12 +3,12 @@ import { testServer } from '../jest.setup';
 
 
 
-describe('Cities - Update By Id', () => {
+describe('City - Update By Id', () => {
 
   it('Updating a register', async () => {
 
     const res1 = await testServer
-      .post('/cities')
+      .post('/city')
       .send({
         name: 'Mock City'
       });
@@ -20,7 +20,7 @@ describe('Cities - Update By Id', () => {
     };
 
     const res2 = await testServer
-      .put('/cities')
+      .put('/city')
       .send({
         ...cityToUpdate
       });
@@ -31,7 +31,7 @@ describe('Cities - Update By Id', () => {
   it('Updating a non-existing register.', async () => {
 
     const res1 = await testServer
-      .put('/cities').send({
+      .put('/city').send({
         id: 999999,
         name: 'Mock City'
       });
