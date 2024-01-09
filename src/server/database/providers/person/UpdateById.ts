@@ -8,9 +8,9 @@ export const updateById = async (person: IPerson): Promise<void | Error> => {
   try {
 
     const validateIdCity = await Knex(ETableNames.city)
-      .where('id', person.idCity).count<[{ count: number }]>('* as count');
+      .select('*').where('id', person.idCity);
 
-    if(validateIdCity) {
+    if(validateIdCity.length <= 0) {
       return new Error('No one city founded with this id.');
     }
 

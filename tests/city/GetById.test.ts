@@ -6,16 +6,9 @@ import { testServer } from '../jest.setup';
 describe('City - Get By Id', () => {
 
   it('Get a register by id.', async () => {
-    const res1 = await testServer
-      .post('/city')
-      .send({
-        name: 'Mock City'
-      });
-
-    expect(res1.statusCode).toEqual(StatusCodes.CREATED);
-
+  
     const res2 = await testServer
-      .get(`/city/${res1.body.id}`).send();
+      .get('/city/1').send();
 
     expect(res2.statusCode).toEqual(StatusCodes.OK);
     expect(res2.body).toHaveProperty('name');

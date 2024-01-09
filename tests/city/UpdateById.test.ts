@@ -15,8 +15,8 @@ describe('City - Update By Id', () => {
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 
     const cityToUpdate = {
-      id: res1.body.id,
-      name: res1.body.name.concat(res1.body.id)
+      id: res1.body,
+      name: 'Mock City Updated'
     };
 
     const res2 = await testServer

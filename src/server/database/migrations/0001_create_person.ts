@@ -11,7 +11,7 @@ export async function up(knex: Knex) {
       table.string('lastName').index().notNullable();
       table.string('email').unique().notNullable();
 
-      table.bigInteger('IdCity').notNullable().index()
+      table.bigInteger('idCity').notNullable().index()
         .references('id')
         .inTable(ETableNames.city)
         .onUpdate('CASCADE')

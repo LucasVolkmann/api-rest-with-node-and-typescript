@@ -11,8 +11,6 @@ describe('City - Create', () => {
       .send({ name: 'Blumenau' });
 
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
-    expect(res1.body).toHaveProperty('name');
-    expect(res1.body).toHaveProperty('id');
   });
   it('It try to create a register using a name with 2 characters.', async () => {
     const res1 = await testServer

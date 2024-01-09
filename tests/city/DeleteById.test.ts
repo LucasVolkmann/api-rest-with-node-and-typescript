@@ -14,7 +14,7 @@ describe('City - Delete By Id', () => {
     expect(res1.statusCode).toEqual(StatusCodes.CREATED);
 
     const res2 = await testServer
-      .delete(`/city/${res1.body.id}`)
+      .delete(`/city/${res1.body}`)
       .send();
 
     expect(res2.statusCode).toEqual(StatusCodes.NO_CONTENT);

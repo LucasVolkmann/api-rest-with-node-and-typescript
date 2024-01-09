@@ -5,14 +5,16 @@ import { Knex } from 'knex';
 
 export const seed = async (knex: Knex) => {
   
-  const [{ count }] = await knex(ETableNames.city).count<[{ count: number }]>('* as count');
+  const TABLE = ETableNames.city;
+
+  const [{ count }] = await knex(TABLE).count<[{ count: number }]>('* as count');
 
   if(count > 0) return;
 
-  console.log(`# Populating table ${ETableNames.city}`);
+  console.log(`# Populating table '${TABLE}'`);
   
   const citiesToInsert = SCcities.map(cityName => ({name: cityName}));
-  await knex(ETableNames.city).insert(citiesToInsert);
+  await knex(TABLE).insert(citiesToInsert);
 };
 
 const SCcities = [
