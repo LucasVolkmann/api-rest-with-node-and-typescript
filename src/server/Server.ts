@@ -3,7 +3,7 @@ import express from 'express';
 import 'dotenv/config';
 // import './shared/services/YupTranslations';
 
-import { cityRouter, personRouter } from './routes';
+import { cityRouter, personRouter, userRouter } from './routes';
 
 const server = express();
 
@@ -15,6 +15,7 @@ server.get('/', (_, res) => {
 
 server.use(cityRouter);
 server.use(personRouter);
+server.use(userRouter);
 
 
 export { server };
