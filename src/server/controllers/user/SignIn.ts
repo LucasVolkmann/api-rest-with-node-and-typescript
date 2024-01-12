@@ -25,7 +25,7 @@ export const signIn = async (req: Request<{}, {}, IBodyProps>, res: Response) =>
 
   const result = await UserProvider.getByEmail(reqEmail);
 
-  //TODO: Refactor 
+  
   if (result instanceof Error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       errors: { default: result.message } 
