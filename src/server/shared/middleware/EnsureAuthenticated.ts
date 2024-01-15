@@ -9,7 +9,7 @@ export const ensureAuthenticated: RequestHandler = (req, res, next) => {
 
   if (!authorization) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
-      errors: { default: 'Not authenticated.' }
+      errors: { default: 'Authentication required.' }
     });
   }
 
