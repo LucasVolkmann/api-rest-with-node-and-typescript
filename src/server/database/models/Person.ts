@@ -3,8 +3,8 @@ import { ICity } from './City';
 
 export interface IPerson {
   id: number,
-  firstName: string,
-  lastName: string,
+  first_name: string,
+  last_name: string,
   email: string,
-  idCity: number
+  id_city: number
 }

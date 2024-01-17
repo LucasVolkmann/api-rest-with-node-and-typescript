@@ -19,63 +19,63 @@ export const seed = async (knex: Knex) => {
 
 const people = [
   {
-    firstName: 'Lucas',
-    lastName: 'Eduardo Volkmann',
+    first_name: 'Lucas',
+    last_name: 'Eduardo Volkmann',
     email: 'lucas.volkmann@example.com',
-    idCity: 2
+    id_city: 2
   },
   {
-    firstName: 'German',
-    lastName: 'Cano',
+    first_name: 'German',
+    last_name: 'Cano',
     email: 'german.cano@example.com',
-    idCity: 4
+    id_city: 4
   },
   {
-    firstName: 'Lucas',
-    lastName: 'Pereira',
+    first_name: 'Lucas',
+    last_name: 'Pereira',
     email: 'lucas.pereira3@proton.com',
-    idCity: 6
+    id_city: 6
   },
   {
-    firstName: 'Giovanna',
-    lastName: 'Lima',
+    first_name: 'Giovanna',
+    last_name: 'Lima',
     email: 'giovanna.lima4@yahoo.com',
-    idCity: 8
+    id_city: 8
   },
   {
-    firstName: 'Mateus',
-    lastName: 'Santos',
+    first_name: 'Mateus',
+    last_name: 'Santos',
     email: 'mateus.santos5@yahoo.com',
-    idCity: 10
+    id_city: 10
   },
   {
-    firstName: 'Laura',
-    lastName: 'Silva',
+    first_name: 'Laura',
+    last_name: 'Silva',
     email: 'laura.silva6@terra.com',
-    idCity: 12
+    id_city: 12
   },
   {
-    firstName: 'Gabriel',
-    lastName: 'Lima',
+    first_name: 'Gabriel',
+    last_name: 'Lima',
     email: 'gabriel.lima7@icloud.com',
-    idCity: 14
+    id_city: 14
   },
   {
-    firstName: 'Beatriz',
-    lastName: 'Lima',
+    first_name: 'Beatriz',
+    last_name: 'Lima',
     email: 'beatriz.lima8@outlook.com',
-    idCity: 16
+    id_city: 16
   },
   {
-    firstName: 'Pedro',
-    lastName: 'Rodrigues',
+    first_name: 'Pedro',
+    last_name: 'Rodrigues',
     email: 'pedro.rodrigues9@proton.com',
-    idCity: 18
+    id_city: 18
   },
   {
-    firstName: 'Sofia',
-    lastName: 'Araujo',
+    first_name: 'Sofia',
+    last_name: 'Araujo',
     email: 'sofia.araujo10@yahoo.com',
-    idCity: 20
+    id_city: 20
   }
 ];

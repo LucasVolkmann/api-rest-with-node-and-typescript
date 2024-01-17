@@ -8,7 +8,7 @@ export const create = async (person: Omit<IPerson, 'id'>): Promise<number | Erro
   try {
 
     const validateIdCity = await Knex(ETableNames.city)
-      .select('*').where('id', person.idCity);
+      .select('*').where('id', person.id_city);
 
     if(validateIdCity.length <= 0) {
       return new Error('No one city founded with this id.');

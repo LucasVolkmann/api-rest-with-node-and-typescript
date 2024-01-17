@@ -52,4 +52,13 @@ describe('City - Get All', () => {
     expect(res1.statusCode).toEqual(StatusCodes.BAD_REQUEST);
     expect(res1.body).toHaveProperty('errors.query.page');
   });
+  it('It try to get all with query param [ filter ] explicitly empty.', async () => {
+    const response = await testServer
+      .get('/city?filter=')
+      .set({ Authorization: `Bearer ${accessToken}` });
+
+    expect(response.statusCode).toEqual(StatusCodes.OK);
+    expect(Number(response.header['x-total-count'])).toBeGreaterThan(0);
+    expect(response.body.length).toBeGreaterThan(0);
+  });
 });

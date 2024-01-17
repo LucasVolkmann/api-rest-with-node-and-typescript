@@ -5,10 +5,12 @@ import { Knex } from '../../knex';
 export const count = async (filter = ''): Promise<number | Error> => {
 
   try {
+
     const [{ count }] = await Knex(ETableNames.person)
-      .count<[{ count: number }]>('* as count').whereRaw(`CONCAT(firstName, ' ', lastName) like '%${filter}%'`);
-  
-    if(Number.isInteger(count)) return count;
+      .count<[{ count: number }]>('* as count')
+      .whereRaw(`CONCAT(first_name, ' ', last_name) like '%${filter}%'`);
+
+    if (count >= 0) return count;
 
     return new Error(`Error while counting with filter='${filter}'`);
 

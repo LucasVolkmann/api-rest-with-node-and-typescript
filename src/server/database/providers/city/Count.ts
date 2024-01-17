@@ -10,7 +10,7 @@ export const count = async (filter: string): Promise<number | Error> => {
       .count<[{ count: number }]>('* as count')
       .where('name', 'like', `%${filter}%`);
 
-    if (Number.isInteger(Number(count))) {
+    if (count >= 0) {
       return Number(count);
     }
 

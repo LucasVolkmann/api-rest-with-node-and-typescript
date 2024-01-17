@@ -9,7 +9,7 @@ export const get = async (page: number, limit: number, filter: string): Promise<
   try {
     const result = await Knex(ETableNames.person)
       .select('*')
-      .whereRaw(`CONCAT(firstName, ' ', lastName) like '%${filter}%'`)
+      .whereRaw(`CONCAT(person.first_name, ' ', person.last_name) like '%${filter}%'`)
       .offset((limit * (page - 1)))
       .limit(limit);
 

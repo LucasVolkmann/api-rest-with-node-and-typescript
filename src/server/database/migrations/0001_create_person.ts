@@ -7,11 +7,11 @@ export async function up(knex: Knex) {
     .schema
     .createTable(ETableNames.person, table => {
       table.bigIncrements('id').primary().index();
-      table.string('firstName').index().notNullable();
-      table.string('lastName').index().notNullable();
+      table.string('first_name').index().notNullable();
+      table.string('last_name').index().notNullable();
       table.string('email').unique().notNullable();
 
-      table.bigInteger('idCity').notNullable().index()
+      table.bigInteger('id_city').notNullable().index()
         .references('id')
         .inTable(ETableNames.city)
         .onUpdate('CASCADE')

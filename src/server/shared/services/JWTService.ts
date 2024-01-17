@@ -9,7 +9,7 @@ const sign = (data: IJwtData): string => {
     return 'JWT_SECRET_NOT_FOUND';
   }
 
-  return jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '24h' });
+  return jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
 
 const verify = (token: string):IJwtData | 'JWT_SECRET_NOT_FOUND' | 'INVALID_TOKEN' => {

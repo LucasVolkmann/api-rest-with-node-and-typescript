@@ -11,10 +11,10 @@ interface IBodyProps extends IPerson { }
 export const updateValidator = validator((getSchema) => ({
   body: getSchema<IBodyProps>(yup.object().shape({
     id: yup.number().integer().required().moreThan(0),
-    firstName: yup.string().required().min(2).max(150),
-    lastName: yup.string().required().min(2).max(150),
+    first_name: yup.string().required().min(2).max(150),
+    last_name: yup.string().required().min(2).max(150),
     email: yup.string().email().required(),
-    idCity: yup.number().integer().required().moreThan(0)
+    id_city: yup.number().integer().required().moreThan(0)
   }))
 }));
 
