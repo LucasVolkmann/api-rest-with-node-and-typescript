@@ -4,7 +4,7 @@ import pg from 'pg';
 
 import { development, production, test } from './Environment';
 
-if(process.env.NODE_ENV === 'dev_doc_pg' || process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV === 'dev' || process.env.NODE_ENV === 'production'){
   pg.types.setTypeParser(pg.types.builtins.INT8, 'text', parseInt);
 }
 
