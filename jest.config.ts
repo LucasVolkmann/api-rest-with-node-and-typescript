@@ -120,7 +120,7 @@ const config: Config = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined,
+  rootDir: './tests',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -135,7 +135,7 @@ const config: Config = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    './tests/jest.setup.ts'
+    '<rootDir>/jest.setup.ts'
   ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -155,7 +155,7 @@ const config: Config = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    '<rootDir>/tests/**/*.test.ts'
+    '<rootDir>/**/*.test.ts'
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped

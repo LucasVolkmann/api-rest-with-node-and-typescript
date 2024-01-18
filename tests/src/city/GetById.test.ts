@@ -1,10 +1,10 @@
-import { IUser } from '../../src/server/database/models';
-import { testServer } from '../jest.setup';
 import { StatusCodes } from 'http-status-codes';
+import { testServer } from '../../jest.setup';
+import { IUser } from '../../../src/server/database/models';
 
 
 
-describe('City - Create', () => {
+describe('City - Get By Id', () => {
 
   let accessToken = '';
   beforeAll(async () => {
@@ -24,21 +24,24 @@ describe('City - Create', () => {
     // .set({ Authorization: `Bearer ${accessToken}` })
   });
 
-  it('Create a register.', async () => {
-    const res1 = await testServer
-      .post('/city')
+  it('Get a register by id.', async () => {
+  
+    const res2 = await testServer
+      .get('/city/1')
       .set({ Authorization: `Bearer ${accessToken}` })
-      .send({ name: 'Blumenau' });
+      .send();
 
-    expect(res1.statusCode).toEqual(StatusCodes.CREATED);
+    expect(res2.statusCode).toEqual(StatusCodes.OK);
+    expect(res2.body).toHaveProperty('name');
+
   });
-  it('It try to create a register using a name with 2 characters.', async () => {
+  it('Getting by id a non-existing register.', async () => {
     const res1 = await testServer
-      .post('/city')
+      .get('/city/999999')
       .set({ Authorization: `Bearer ${accessToken}` })
-      .send({ name: 'aa' });
+      .send();
 
-    expect(res1.statusCode).toEqual(StatusCodes.BAD_REQUEST);
-    expect(res1.body).toHaveProperty('errors.body.name');
+    expect(res1.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
+    expect(res1.body).toHaveProperty('errors.default');
   });
 });

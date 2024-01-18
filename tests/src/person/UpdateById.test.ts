@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
-import { testServer } from '../jest.setup';
-import { IPerson, IUser } from '../../src/server/database/models';
+import { testServer } from '../../jest.setup';
+import { IPerson, IUser } from '../../../src/server/database/models';
 
 
 describe('Person - Update By Id', () => {

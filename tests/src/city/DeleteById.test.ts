@@ -1,10 +1,10 @@
 import { StatusCodes } from 'http-status-codes';
-import { testServer } from '../jest.setup';
-import { IUser } from '../../src/server/database/models';
+import { testServer } from '../../jest.setup';
+import { IUser } from '../../../src/server/database/models';
 
 
 
-describe('City - Get By Id', () => {
+describe('City - Delete By Id', () => {
 
   let accessToken = '';
   beforeAll(async () => {
@@ -24,22 +24,26 @@ describe('City - Get By Id', () => {
     // .set({ Authorization: `Bearer ${accessToken}` })
   });
 
-  it('Get a register by id.', async () => {
-  
-    const res2 = await testServer
-      .get('/city/1')
-      .set({ Authorization: `Bearer ${accessToken}` })
-      .send();
+  it('Deleting a register', async () => {
 
-    expect(res2.statusCode).toEqual(StatusCodes.OK);
-    expect(res2.body).toHaveProperty('name');
-
-  });
-  it('Getting by id a non-existing register.', async () => {
     const res1 = await testServer
-      .get('/city/999999')
+      .post('/city')
+      .set({ Authorization: `Bearer ${accessToken}` })
+      .send({ name: 'Mock Test City' });
+
+    expect(res1.statusCode).toEqual(StatusCodes.CREATED);
+
+    const res2 = await testServer
+      .delete(`/city/${res1.body}`)
       .set({ Authorization: `Bearer ${accessToken}` })
       .send();
+
+    expect(res2.statusCode).toEqual(StatusCodes.NO_CONTENT);
+  });
+  it('Deleting a non-existing register.', async () => {
+    const res1 = await testServer
+      .delete('/city/999999')
+      .set({ Authorization: `Bearer ${accessToken}` });
 
     expect(res1.statusCode).toEqual(StatusCodes.INTERNAL_SERVER_ERROR);
     expect(res1.body).toHaveProperty('errors.default');

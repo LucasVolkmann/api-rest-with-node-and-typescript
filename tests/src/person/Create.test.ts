@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
-import { testServer } from '../jest.setup';
-import { IUser } from '../../src/server/database/models';
+import { testServer } from '../../jest.setup';
+import { IUser } from '../../../src/server/database/models';
 
 
 describe('Person - Create', () => {
