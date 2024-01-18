@@ -31,10 +31,10 @@ describe('Person - Get By Id', () => {
 
     expect(response.status).toEqual(StatusCodes.OK);
     expect(response.body).toHaveProperty('id');
-    expect(response.body).toHaveProperty('firstName');
-    expect(response.body).toHaveProperty('lastName');
+    expect(response.body).toHaveProperty('first_name');
+    expect(response.body).toHaveProperty('last_name');
     expect(response.body).toHaveProperty('email');
-    expect(response.body).toHaveProperty('idCity');
+    expect(response.body).toHaveProperty('id_city');
 
   });
   it('Get By Id | invalid id | incorrect param error', async () => {

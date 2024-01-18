@@ -41,10 +41,10 @@ describe('Person - Create', () => {
       .post('/person')
       .set({ Authorization: `Bearer ${accessToken}` })
       .send({
-        firstName: 'mock',
-        lastName: 'person',
+        first_name: 'mock',
+        last_name: 'person',
         email: 'mock.person@example.com',
-        idCity: testCityId,
+        id_city: testCityId,
       });
 
     console.log(response.body);
@@ -92,10 +92,10 @@ describe('Person - Create', () => {
       .post('/person')
       .set({ Authorization: `Bearer ${accessToken}` })
       .send({
-        firstName: 'mock',
-        lastName: 'person',
+        first_name: 'mock',
+        last_name: 'person',
         email: 'mock.person@example.com',
-        idCity: 9999999999,
+        id_city: 9999999999,
       });
 
     expect(response.body).toHaveProperty('errors.default');

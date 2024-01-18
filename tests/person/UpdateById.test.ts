@@ -38,10 +38,10 @@ describe('Person - Update By Id', () => {
 
     const personToUpdate: IPerson = {
       id: 1,
-      firstName: 'mock person',
-      lastName: 'updated',
+      first_name: 'mock person',
+      last_name: 'updated',
       email: 'mock.person@example.com',
-      idCity: testCityId
+      id_city: testCityId
     };
 
     const response = await testServer
@@ -84,10 +84,10 @@ describe('Person - Update By Id', () => {
       .set({ Authorization: `Bearer ${accessToken}` })
       .send({
         id: 1,
-        firstName: 'mock',
-        lastName: 'person',
+        first_name: 'mock',
+        last_name: 'person',
         email: 'mock.person@example.com',
-        idCity: 9999999999,
+        id_city: 9999999999,
       });
 
     expect(response.body).toHaveProperty('errors.default');
