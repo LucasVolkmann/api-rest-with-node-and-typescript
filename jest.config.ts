@@ -22,10 +22,14 @@ const config: Config = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: [
+    '**/*.{ts,tsx}',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+  ],
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  coverageDirectory: './tests/coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -37,7 +41,8 @@ const config: Config = {
 
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: [
-    'json'
+    'json',
+    'html'
   ],
 
   // An object that configures minimum threshold enforcement for coverage results
@@ -120,7 +125,7 @@ const config: Config = {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  rootDir: './tests',
+  // rootDir: './tests',
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -135,7 +140,7 @@ const config: Config = {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    '<rootDir>/jest.setup.ts'
+    './tests/jest.setup.ts'
   ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -155,7 +160,7 @@ const config: Config = {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    '<rootDir>/**/*.test.ts'
+    '<rootDir>/tests/**/*.test.ts'
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
